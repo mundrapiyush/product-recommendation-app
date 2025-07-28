@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Table Result for {{ username }}</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Table for user: {{ username }}</h1>
+    <table>
+      <thead>
+        <tr>
+          {% for key in table_data[0].keys() %}
+          <th>{{ key }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in table_data %}
+        <tr>
+          {% for value in row.values() %}
+          <td>{{ value }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <a href="/">Go Back</a>
+  </body>
+</html>
