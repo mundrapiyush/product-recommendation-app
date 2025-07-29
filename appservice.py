@@ -16,12 +16,11 @@ def results():
     # Use modelservice to get recommendations or data
     recommendations, brands = model_service.get_top_n_recommendations_based_on_user(username)
 
-    table_data = []
-    for brand, rating in recommendations.items():
-        table_data.append({
-            'product': brand.split('#')[-1],
-            'rating': rating
-        })
+    # Fetch vectorized reviews for the recommendations
+    top_products = model_service.get_top_productes_based_on_vectorized_reviews(recommendations)
+
+    # Read the top_products dataframe and create a table for display
+    table_data = top_products.to_dict(orient='records')
 
     return render_template('results.html', username=username, table_data=table_data)
 
