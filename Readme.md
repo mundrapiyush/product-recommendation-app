@@ -18,9 +18,11 @@ To achieve a sentiment-based product recommendation system identified the follow
 
 1. **`development/`** – This folder contains the Jupyter notebooks used during the development of the recommendation engine and sentiment analysis model. It also includes the input datasets, intermediate processed data, and the trained models.
 
-    - 1.1 **input-data** - This folder contains the input CSV used to train the recommendation engine and the sentiment analysis model.
-    - 1.2 **interim-data** - This folder contains the clean data in the (.pkl) format. This clean data is used to train and evaluate the Sentiment Models built using ML Algorithms for NLP. This data is also leveraged to train and evaluate the User-User and Item-Item similarity based recommendation model.
-    - 1.3 **models** - This folder contains all the different models built for Sentiment Analysis and Recommendation System.
+    - **input-data** - This folder contains the input CSV used to train the recommendation engine and the sentiment analysis model.
+    - **interim-data** - This folder contains the clean data in the (.pkl) format. This clean data is used to train and evaluate the Sentiment Models built using ML Algorithms for NLP. This data is also leveraged to train and evaluate the User-User and Item-Item similarity based recommendation model.
+    - **models** - This folder contains all the different models built for Sentiment Analysis and Recommendation System.
+
+> Note: Note: Because GitHub restricts file uploads larger than 100MB, the models generated using Random Forest and XGB have not been included in this repository. Only the smaller model obtained using Logistic Regression is provided.
 
 2. **`modelservice.py`** – This file defines the `Model` class, which serves as a wrapper around both the User-Based Recommendation logic and the Sentiment Analyzer. It first identifies products purchased by similar users, then analyzes the sentiment of existing reviews for those products, filters them based on sentiment scores, and finally recommends the top 5 products to the user.
 
