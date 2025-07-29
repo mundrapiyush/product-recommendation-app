@@ -66,7 +66,7 @@ class ModelService:
     def get_top_productes_based_on_vectorized_reviews(self, top_n_recommendations):
 
         # Filter the clean_data_df to get the rows where the manufacturer_brand_name is in top_n_recommendations
-        filtered_data_df = self.master_data[self.master_data['manufacturer_brand_name'].isin(top_n_recommendations.index)].copy()  # <-- Add .copy()
+        filtered_data_df = self.master_data[self.master_data['manufacturer_brand_name'].isin(top_n_recommendations.index)].copy()
 
         # Use the TF-IDF vectorizer to transform the reviews_lemmatized column in filtered_data_df
         X = self.vectorized_reviews.transform(filtered_data_df['reviews_lemmatized'].values.astype(str))
